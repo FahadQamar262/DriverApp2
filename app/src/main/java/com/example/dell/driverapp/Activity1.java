@@ -15,7 +15,7 @@ public class Activity1 extends AppCompatActivity {
     }
     void RegisterOnClick(View v)
     {
-        Intent myIntent = new Intent(Activity1.this,MapsActivity.class);
+        Intent myIntent = new Intent(Activity1.this,Login.class);
         startActivity(myIntent);
 
 
