@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -29,7 +30,7 @@ public class Login extends AppCompatActivity {
     String email,password;
     AlertDialog.Builder d;
     RadioGroup radioGroup;
-    String url="http://f118a94e.ngrok.io//login.php";
+    String url="http://fbffff24.ngrok.io//driver//login7.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class Login extends AppCompatActivity {
         email_txt=(EditText) findViewById(R.id.input_email);
         password_txt=(EditText)findViewById(R.id.input_password);
         on_track=(RadioButton)findViewById(R.id.ontrack) ;
-        on_leave=(RadioButton)findViewById(R.id.onleave) ;
+
         radioGroup=(RadioGroup)findViewById(R.id.radioGroup);
 
         d=new AlertDialog.Builder(this);
@@ -47,15 +48,20 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 email=email_txt.getText().toString();
                 password=password_txt.getText().toString();
-                if(email.equals(" ")||password.equals(" ")) {
-                    d.setTitle("input field empty");
-                    displayAlert("enter valid username or password ");
+                if(email.equals("")||password.equals("")) {
+                   // d.setTitle("input field empty");
+                   // displayAlert("enter valid username or password ");
+                    Toast.makeText(Login.this, "enter valid username or password !",
+                            Toast.LENGTH_LONG).show();
+
 
                 }
                 else if (radioGroup.getCheckedRadioButtonId() == -1)
                 {
-                    d.setTitle("Please check onTrack Or onLeave");
-                    displayAlert("Check your status ");
+                   // d.setTitle("Please check onTrack Or onLeave");
+                   // displayAlert("Check your status ");
+                    Toast.makeText(Login.this, "Please check onTrack !",
+                            Toast.LENGTH_LONG).show();
                 }
                 else {
                     StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -67,21 +73,28 @@ public class Login extends AppCompatActivity {
                                 JSONArray j=new JSONArray(response);
                                 JSONObject o=j.getJSONObject(0);
                                 String code=o.getString("code");
+
                                 if(code.equals("login failed")){
                                     d.setTitle("login err");
-                                    displayAlert(o.getString("message"));
+
+                                   displayAlert(o.getString("Login Failed"));
                                 }else{
                                     Intent i=new Intent(Login.this,MapsActivity.class);
+                                    String id=o.getString("did");
+                                    i.putExtra("did",id);
                                     startActivity(i);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
+
                             }
 
                         }
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(Login.this, "User not available !",
+                                   Toast.LENGTH_LONG).show();
 
                         }
                     }){

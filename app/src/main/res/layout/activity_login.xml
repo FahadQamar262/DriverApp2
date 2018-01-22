@@ -1,69 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/bcki"
-    tools:context="com.example.dell.driverapp.Login">
+    android:background="@drawable/bckiparent"
+    tools:context="com.example.dell.driverapp.Login"
+    >
 
 
-    <EditText android:id="@+id/input_email"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="421dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoparent" />
+
+    <EditText
+        android:id="@+id/input_email"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="211dp"
+        android:layout_marginStart="169dp"
+        android:layout_marginTop="41dp"
+        android:background="@color/colorWhite"
+        android:drawableStart="@drawable/ic_username1"
+        android:ems="10"
         android:inputType="textEmailAddress"
-        android:layout_marginTop="150dp"
-        android:hint="Email" />
-    <EditText android:id="@+id/input_password"
-        android:layout_width="match_parent"
+        android:textColor="#1e0f3d"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <EditText
+        android:id="@+id/input_password"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginEnd="211dp"
+        android:layout_marginStart="169dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorWhite"
+        android:drawableStart="@drawable/ic_userpas"
+        android:ems="10"
         android:inputType="textPassword"
-        android:hint="Password"/>
+        android:textColor="#1e0f3d"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_email" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="113dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
+        android:background="#1e0f3d"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_password">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/ontrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OnTrack" />
+        </RadioGroup>
+    </LinearLayout>
+
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:layout_width="88dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
+        android:background="#1e0f3d"
         android:text="Login"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="51dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <RadioGroup
-        android:layout_width="fill_parent"
-        android:layout_height="90dp"
-
-        android:layout_marginTop="10dp"
-        android:weightSum="1"
-        android:id="@+id/radioGroup"
-        android:layout_below="@+id/input_password"
-        android:layout_above="@+id/btn_login"
-
-       >
-
-        <RadioButton
-            android:id="@+id/ontrack"
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"
-            android:text="OnTrack"
-            android:textSize="25dp"
-            android:layout_weight="0.10" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OnLeave"
-            android:id="@+id/onleave"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"
-            android:textSize="25dp"
-            android:layout_weight="0.13" />
-    </RadioGroup>
-
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

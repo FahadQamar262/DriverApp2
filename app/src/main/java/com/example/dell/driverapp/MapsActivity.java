@@ -39,9 +39,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private static final String TAG = "GPS test";
     private LocationManager mLocationManager = null;
-    private static final int LOCATION_INTERVAL = 10000;
-    private static final float LOCATION_DISTANCE = 10f;
-    String server_url="http://f118a94e.ngrok.io//location.php";
+    private static final int LOCATION_INTERVAL = 60000;
+    private static final float LOCATION_DISTANCE = 1f;
+    String server_url="http://fbffff24.ngrok.io//driver//location.php";
     Location location;
 
     double latitude;
@@ -64,8 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(),location.getLongitude()))
                     .title("your location"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(location.getLatitude(),location.getLongitude())));
-            double latitude = location.getLatitude();
-             double longitude = location.getLongitude();
+             latitude = location.getLatitude();
+             longitude = location.getLongitude();
             RequestQueue requestQueue= Volley.newRequestQueue(MapsActivity.this);
             StringRequest stringRequest=new StringRequest(Request.Method.POST, server_url, new Response.Listener<String>() {
                 @Override
@@ -85,6 +85,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Map<String,String> params=new HashMap<String, String>();
                     params.put("latitude", String.valueOf(location.getLatitude()));
                     params.put("longitude", String.valueOf(location.getLongitude()));
+                    params.put("id",getIntent().getStringExtra("did"));
                     return params;
                 }
             };
@@ -93,9 +94,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
             Toast.makeText(getApplicationContext(),"Location send to server \n Long: " + location.getLongitude() + ", Lat: " + location.getLatitude(), Toast.LENGTH_SHORT).show();
-
-
-
 
         }
 
