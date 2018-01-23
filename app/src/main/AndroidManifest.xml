@@ -14,7 +14,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/fhahs"
-        android:label="@string/app_name"
+        android:label="Vehicle Tracking"
         android:roundIcon="@drawable/fhahs"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">

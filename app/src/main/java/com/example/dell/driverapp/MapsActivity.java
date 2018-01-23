@@ -25,6 +25,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -41,7 +42,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LocationManager mLocationManager = null;
     private static final int LOCATION_INTERVAL = 60000;
     private static final float LOCATION_DISTANCE = 1f;
-    String server_url="http://fbffff24.ngrok.io//driver//location.php";
+    String server_url="http://3af1d914.ngrok.io//driver//location.php";
     Location location;
 
     double latitude;
@@ -62,7 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         {
             Log.e(TAG, "onLocationChanged: " + location);
             mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(),location.getLongitude()))
-                    .title("your location"));
+                    .title("your location").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_car)));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(location.getLatitude(),location.getLongitude())));
              latitude = location.getLatitude();
              longitude = location.getLongitude();
