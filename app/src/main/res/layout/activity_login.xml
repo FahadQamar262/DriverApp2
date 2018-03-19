@@ -4,38 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bckiparent"
+    android:background="@drawable/background"
     tools:context="com.example.dell.driverapp.Login"
-    >
+    tools:layout_editor_absoluteY="25dp">
 
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon" />
+        android:visibility="gone"
+        app:srcCompat="@drawable/icon"
+        tools:layout_editor_absoluteX="157dp" />
 
     <EditText
         android:id="@+id/input_email"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="211dp"
-        android:layout_marginStart="169dp"
-        android:layout_marginTop="41dp"
-        android:background="@color/colorWhite"
-        android:drawableStart="@drawable/ic_username1"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="267dp"
+        android:background="@drawable/edit_shape"
+        android:drawableStart="@drawable/ic_mailp"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:textColor="#1e0f3d"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -43,16 +37,18 @@
         android:id="@+id/input_password"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="211dp"
-        android:layout_marginStart="169dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/colorWhite"
-        android:drawableStart="@drawable/ic_userpas"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_shape"
+        android:drawableStart="@drawable/ic_paap"
         android:ems="10"
         android:inputType="textPassword"
         android:textColor="#1e0f3d"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_email" />
 
@@ -60,11 +56,13 @@
         android:id="@+id/linearLayout2"
         android:layout_width="113dp"
         android:layout_height="32dp"
-        android:layout_marginTop="24dp"
-        android:background="#1e0f3d"
+        android:layout_marginEnd="103dp"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="35dp"
+        android:background="@color/colorPrimaryDark"
         android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_password">
 
         <RadioGroup
@@ -85,16 +83,16 @@
         android:id="@+id/btn_login"
         android:layout_width="88dp"
         android:layout_height="38dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="24dp"
-        android:background="#1e0f3d"
+        android:layout_marginBottom="39dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorPrimary"
         android:text="Login"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </android.support.constraint.ConstraintLayout>

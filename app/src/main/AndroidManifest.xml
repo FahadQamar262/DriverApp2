@@ -11,9 +11,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/fhahs"
+        android:icon="@drawable/dicon"
         android:label="Vehicle Tracking"
         android:roundIcon="@drawable/fhahs"
         android:supportsRtl="true"
@@ -43,6 +45,9 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".Login" />
         <activity android:name=".testingActivity"></activity>
+
+
+
     </application>
 
 </manifest>

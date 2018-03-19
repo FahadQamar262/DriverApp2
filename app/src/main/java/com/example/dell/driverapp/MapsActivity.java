@@ -42,7 +42,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LocationManager mLocationManager = null;
     private static final int LOCATION_INTERVAL = 60000;
     private static final float LOCATION_DISTANCE = 1f;
-    String server_url="http://3af1d914.ngrok.io//driver//location.php";
+    String server_url="http://a01da5d7.ngrok.io/driver/location2.php";
     Location location;
 
     double latitude;
