@@ -2,6 +2,7 @@ package com.example.dell.driverapp;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 
 import android.location.Location;
@@ -12,6 +13,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -27,6 +29,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -42,11 +45,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LocationManager mLocationManager = null;
     private static final int LOCATION_INTERVAL = 60000;
     private static final float LOCATION_DISTANCE = 1f;
-    String server_url="http://a01da5d7.ngrok.io/driver/location2.php";
+    String server_url="http://f7161757.ngrok.io/driver/location2.php";
     Location location;
 
     double latitude;
     double longitude;
+    Marker marker;
 
     private class LocationListener implements android.location.LocationListener
     {
@@ -62,11 +66,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void onLocationChanged(final Location location)
         {
             Log.e(TAG, "onLocationChanged: " + location);
+
+
+
+
+
+
+
             mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(),location.getLongitude()))
-                    .title("your location").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_car)));
+                    .title("your location"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(location.getLatitude(),location.getLongitude())));
+           // mMap.clear();
+
+
              latitude = location.getLatitude();
              longitude = location.getLongitude();
+
             RequestQueue requestQueue= Volley.newRequestQueue(MapsActivity.this);
             StringRequest stringRequest=new StringRequest(Request.Method.POST, server_url, new Response.Listener<String>() {
                 @Override
@@ -96,6 +111,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             Toast.makeText(getApplicationContext(),"Location send to server \n Long: " + location.getLongitude() + ", Lat: " + location.getLatitude(), Toast.LENGTH_SHORT).show();
 
+          //  mMap.clear();
         }
 
         @Override
@@ -131,6 +147,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        ImageView driverLoc =(ImageView)findViewById(R.id.img2) ;
+        driverLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapsActivity.this,Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         Log.e(TAG, "onCreate");
         initializeLocationManager();
         try {
@@ -181,9 +206,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
         // Add a marker in Sydney and move the camera
        // LatLng uni = new LatLng(24.940544, 67.120736);
+
         LatLng uni = new LatLng(latitude, longitude);
+       //mMap.clear();
         mMap.addMarker(new MarkerOptions()
               .position(uni)
                 .title("Marker in KU")

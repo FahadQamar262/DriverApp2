@@ -1,8 +1,89 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+<!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:map="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:id="@+id/map"-->
+<!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--tools:context="ranafahad.com.parentapp3.MapsActivity" />-->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:id="@+id/frmlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dell.driverapp.MapsActivity" />
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#5ecfe3"
+        android:id="@+id/d2"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/img"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/bus"/>
+        <TextView
+            android:paddingStart="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/img"
+            android:textSize="22sp"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:text="Driver Location"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:id="@+id/img2"
+
+            android:layout_toLeftOf="@+id/c5"
+
+            android:src="@drawable/checkout"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:layout_alignParentEnd="true"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:text="Check Out"
+            android:id="@+id/c5"/>
+
+    </RelativeLayout>
+
+
+
+
+
+    <!--<fragment-->
+    <!--android:layout_below="@+id/driverLocation"-->
+    <!--android:id="@+id/map"-->
+    <!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="js.com.uberown1.DriverMapActivity" />-->
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_below="@+id/d2"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.dell.driverapp.MapsActivity" />
+
+
+</RelativeLayout>
+
+
+

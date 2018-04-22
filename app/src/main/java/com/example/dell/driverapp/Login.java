@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
     String email,password;
     AlertDialog.Builder d;
     RadioGroup radioGroup;
-    String url="http://a01da5d7.ngrok.io/driver/login7.php";
+    String url="http://f7161757.ngrok.io/driver/login7.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

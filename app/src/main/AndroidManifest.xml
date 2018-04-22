@@ -16,11 +16,12 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/dicon"
-        android:label="Vehicle Tracking"
+        android:label="Driver App"
         android:roundIcon="@drawable/fhahs"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Splash">
+        <activity android:name=".Splash"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,8 +43,10 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".Login" />
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Login"
+            android:screenOrientation="portrait"/>
         <activity android:name=".testingActivity"></activity>
 
 
